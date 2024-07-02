@@ -56,7 +56,6 @@ function SendMessageForm({ className, t }: Props) {
           type="text"
           minLength={3}
           maxLength={80}
-          value="helloworld"
         ></Input>
         <Input
           name="email"
