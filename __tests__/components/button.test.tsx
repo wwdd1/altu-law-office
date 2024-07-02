@@ -2,19 +2,15 @@ import '@testing-library/jest-dom'
 import { render, screen, fireEvent } from '@testing-library/react'
 import Button from '../../app/ui/components/core/button'
 
-import * as rdm from 'react-dom'
-
-const mockUseFormStatus = jest.fn()
+const mockUseFormStatus = jest.fn().mockReturnValue({
+  pending: false
+})
 jest.mock('react-dom', () => {
   const actualModule = jest.requireActual('react-dom')
   return {
     ...actualModule,
     useFormStatus: () => {
-      return mockUseFormStatus.mockImplementationOnce(() => {
-        return {
-          pending: false
-        }
-      })()
+      return mockUseFormStatus()
     }
   }
 })
@@ -33,6 +29,10 @@ describe('Button', () => {
     )
     const button = screen.getByTestId('button')
 
+    mockUseFormStatus.mockImplementationOnce(() => ({
+      pending: true,
+    }))
+
     expect(button).toBeInTheDocument()
     expect(button).toHaveTextContent('Hello')
     expect(button).toHaveAttribute('type', 'submit')
@@ -48,6 +48,7 @@ describe('Button', () => {
       <Button
         label="Hello"
         disabled={true}
+        disabledLabel='Disabled'
         onClick={onClickMock}
       />
     )
@@ -55,5 +56,6 @@ describe('Button', () => {
 
     fireEvent.click(button)
     expect(onClickMock).toHaveBeenCalledTimes(0)
+    expect(button.innerHTML).toStrictEqual('Disabled')
   })
 })

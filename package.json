@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest --collect-coverage",
+    "test:dev": "jest --collect-coverage --watch",
     "tf-format": "cd ./terraform && terraform fmt && cd ..",
     "debug": "NODE_OPTIONS='--inspect' next dev"
   },
