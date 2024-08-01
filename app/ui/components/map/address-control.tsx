@@ -1,15 +1,18 @@
-import React, { useEffect } from "react"
+import React, { type ReactNode, useEffect } from "react"
 import { createPortal } from "react-dom"
 import ExternalLinkSvg from "@/ui/icons/external-link.svg"
 import { useGoogleMapsContext } from "app/ui/context/google-maps-context"
+import { Translations } from "../hoc/withTranslations/types"
 
-export default function AddressControl(
-  {
+type Props = {
+  children: ReactNode
+  position?: number
+} & Translations
+export default function AddressControl({
+    children,
     position = window.google.maps.ControlPosition.TOP_LEFT,
-  }: {
-    position?: number,
-  },
-) {
+    t,
+}: Props) {
 
   const mapRef = useGoogleMapsContext()
   const controlDiv = document.createElement('div')
@@ -28,13 +31,11 @@ export default function AddressControl(
   return createPortal((
     <div className="bg-white flex p-3 m-2 shadow-md text-[0.9rem]">
       <div className="max-w-[260px]">
-        <p><strong>ALTU Hukuk Burosu</strong></p>
-        <p>İsmet Kaptan Mh. 1367 Sk. No:2 Kat:7 Daire:704 İkbal 2 İş Merkezi</p>
-        <p>Konak/İzmir</p>
+        { children }
       </div>
       <div className="text-link-alternate text-center self-center cursor-pointer hover:underline">
         <ExternalLinkSvg width={22} height={22} className="inline mb-1"></ExternalLinkSvg>
-        <div>Directions</div>
+        <div>{ t('direction') }</div>
       </div>
     </div>
   ), controlDiv)

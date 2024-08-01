@@ -1,0 +1,72 @@
+{
+  "Company": [
+    {
+      "id": "7b4fb343-f69c-479e-acee-051eede40e69",
+      "name": "ALTU",
+      "contact_id": "c8c9957c-8713-4ecf-ae80-35305b6ecdff"
+    }
+  ],
+  "Member": [
+    {
+      "id": "ad6451e7-27a8-4257-bcd1-46348e41a63f",
+      "company_id": "7b4fb343-f69c-479e-acee-051eede40e69",
+      "client_route_id": "mehmet-aldemir",
+      "job_position": "cofounder",
+      "job_prefix": "attorney",
+      "firstname": "Mehmet",
+      "lastname": "ALDEMİR",
+      "image_uri": "/attorney-2.JPG",
+      "about_short": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas fuga, consectetur voluptas dolorum ipsum consequuntur eligendi porro animi doloribus, perspiciatis ex laudantium eaque harum ratione dignissimos sequi similique? Numquam, dolor.",
+      "contact_id": "3dfc1ca5-00e9-47ed-8613-cffdbda41c40",
+      "birthdate": "2000-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "42c17343-152d-46d8-810d-93f86f44aee8",
+      "company_id": "7b4fb343-f69c-479e-acee-051eede40e69",
+      "client_route_id": "asil-tuna",
+      "job_position": "cofounder",
+      "job_prefix": "attorney",
+      "firstname": "Asil",
+      "lastname": "TUNA",
+      "image_uri": "/attorney-1.jpeg",
+      "about_short": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas fuga, consectetur voluptas dolorum ipsum consequuntur eligendi porro animi doloribus, perspiciatis ex laudantium eaque harum ratione dignissimos sequi similique? Numquam, dolor.",
+      "contact_id": "f5172684-671b-4a6e-9f0b-f0c59e1e9435",
+      "birthdate": "2000-01-01T00:00:00.000Z"
+    }
+  ],
+  "Contact": [
+    {
+      "id": "c8c9957c-8713-4ecf-ae80-35305b6ecdff",
+      "workhour_start": "1970-01-01T00:06:00.000Z",
+      "workhour_end": "1970-01-01T00:15:00.000Z",
+      "workdays": "1,2,3,4,5",
+      "phone_number": "+90 555 555 55 55",
+      "email": "altuhukuk@gmail.com",
+      "address_line_1": "İsmet Kaptan Mh. 1367 Sk. No:2 Kat:7 Daire:704 İkbal 2 İş Merkezi",
+      "address_line_2": "Konak/İzmir",
+      "map_coordinates": "38.4228558,27.1415766"
+    },
+    {
+      "id": "3dfc1ca5-00e9-47ed-8613-cffdbda41c40",
+      "workhour_start": "1970-01-01T00:06:00.000Z",
+      "workhour_end": "1970-01-01T00:06:00.000Z",
+      "workdays": "1,2,3,4,5",
+      "phone_number": "",
+      "email": "",
+      "address_line_1": "",
+      "address_line_2": "",
+      "map_coordinates": ""
+    },
+    {
+      "id": "f5172684-671b-4a6e-9f0b-f0c59e1e9435",
+      "workhour_start": "1970-01-01T00:06:00.000Z",
+      "workhour_end": "1970-01-01T00:06:00.000Z",
+      "workdays": "1,2,3,4,5",
+      "phone_number": "",
+      "email": "",
+      "address_line_1": "",
+      "address_line_2": "",
+      "map_coordinates": ""
+    }
+  ]
+}

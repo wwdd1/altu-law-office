@@ -1,4 +1,8 @@
-export const fallbackLng = 'tr'
+export enum LANG {
+  TR = 'tr'
+} 
+
+export const fallbackLng = LANG.TR as string
 export const languages = [fallbackLng]
 export const defaultNS = ''
 

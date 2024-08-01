@@ -1,65 +1,43 @@
+'use client'
+
+import { Suspense } from "react"
+import { isServer, useQuery } from "@tanstack/react-query"
 import classNames from "classnames"
-import Image from "next/image"
 
-import Button from "app/ui/components/core/button"
+import withTranslations from "../hoc/withTranslations/client"
+import type { Translations } from "app/ui/components/hoc/withTranslations/types"
 import { font_playfair } from "app/ui/fonts"
-import { TeamMember } from "app/lib/definitions"
-import Link from "next/link"
-
-type ItemProps = {
-  className?: string
-  imageUri: string
-  fullname: string
-  jobTitle: string
-  description: string
-}
-export function TeamMemberItem({
-  className,
-  imageUri,
-  fullname,
-  jobTitle,
-  description,
-}: ItemProps) {
-  return (
-    <li className={classNames(['mx-16', className])}>
-      <div className="h-[420px] relative overflow-clip">
-        <Image
-          className="absolute object-cover grayscale max-w-full"
-          src={imageUri}
-          alt={fullname}
-          fill
-        ></Image>
-      </div>
-      <div className="py-6 border-b border-gray-var-2">
-        <h5 className="inline font-bold text-2xl">{fullname}</h5>
-        <span className="mx-2 font-thin text-2xl">-</span>
-        <h6 className="inline font-thin text-2xl">{jobTitle}</h6>
-      </div>
-      <div className="py-6 text-text-primary font-light border-b border-gray-var-2">
-        { description }
-      </div>
-      <div className="py-6 flex xs:flex-wrap text-center gap-2">
-        <Link href="/contact/mehmet-aldemir" className="flex-1 xs:flex-0">
-          <Button className="w-full" label="View background"></Button>
-        </Link>
-        <Link href="/contact/mehmet-aldemir" className="flex-1 xs:flex-0">
-          <Button className="w-full" label="Send a message"></Button>
-        </Link>
-      </div>
-    </li>
-  )
-}
+import { TeamMemberDto } from "app/lib/dtos"
+import TeamMemberItem from "@/ui/components/team-member-card"
 
 type Props = {
   className?: string;
   hideHeader?: boolean;
-  attorneys: TeamMember[]
-}
-export default function OurTeamOverview({
+} & Translations
+function OurTeamOverview({
   className,
   hideHeader,
-  attorneys,
+  t,
 }: Props) {
+  if (!t) {
+    throw new Error('Component needs to be wrapped with HOC withTranslations')
+  }
+
+  console.log({ isServer })
+
+  const { data: members, error } = useQuery({
+    queryKey: ['members'],
+    queryFn: async (): Promise<TeamMemberDto[]> => {
+      const apiUri= `/api/companies/${process.env.NEXT_PUBLIC_COMPANY_ID}/members`
+      const response = await fetch(apiUri)
+      return response.json()
+    },
+  })
+
+  if (error) {
+    return <pre>{ error.message }</pre>;
+  }
+
   return (
     <div className={className}>
       {
@@ -69,13 +47,25 @@ export default function OurTeamOverview({
           </h4>
         : ''
       }
-      <ul className="flex md-w-sidebar:block justify-center py-12 pt-0">
-        {
-          attorneys.map(attorney => (
-            <TeamMemberItem className="md-w-sidebar:my-12" key={attorney.fullname} {...attorney}></TeamMemberItem>
-          ))
-        }
-      </ul>
+      <Suspense fallback={<div>TODOOOOO IMPL THIS!!</div>}>
+        <ul className="flex md-w-sidebar:block justify-center py-12 pt-0">
+          {
+            members?.map(member => (
+              <TeamMemberItem
+                className="md-w-sidebar:my-12"
+                key={member.id}
+                imageUri={member.image_uri}
+                fullname={`${member.job_prefix} ${member.firstname} ${member.lastname}`}
+                jobTitle={member.job_position}
+                description={member.about_short}
+                routeKey={member.client_route_id}
+              ></TeamMemberItem>
+            ))
+          }
+        </ul>
+      </Suspense>
     </div>
   )
 }
+
+export default  withTranslations(OurTeamOverview)
