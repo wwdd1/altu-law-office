@@ -1,6 +1,7 @@
 import classNames from "classnames"
 import { v4 as createId } from "uuid"
 import { useMemo } from "react"
+import Link from "next/link"
 
 import { font_playfair } from "app/ui/fonts"
 import Button from "app/ui/components/core/button"
@@ -47,7 +48,9 @@ export default function ContactAboutUs() {
         }
 
         <div className="text-right">
-          <Button label={t('contact')}></Button>
+          <Link href="/contact">
+            <Button label={t('contact')}></Button>
+          </Link>
         </div>
       </div>
       <div className="bg-alternate flex-1 px-12 py-32">

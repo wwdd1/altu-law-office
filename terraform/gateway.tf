@@ -10,8 +10,8 @@ locals {
       paths:
         /contact-send-message:
           post:
-            summary: Returns a list of users.
-            description: Optional extended description in Markdown.
+            summary: Sends email.
+            description: Sends email using configured provider.
             operationId: contactSendMessage
             x-google-backend:
               address: "${google_cloudfunctions_function.contact_send_message.https_trigger_url}"

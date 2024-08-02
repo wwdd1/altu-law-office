@@ -5,7 +5,11 @@
   "about-us": "Hakkımızda",
   "why-choose-us": "Neden bizi seçmelisiniz?",
   "why-us": "Neden biz?",
+  "phone": "Telefon",
+  "email": "E-Posta",
+  "work-hours": "Çalışma Saatleri",
   "homepage": "Anasayfa",
+  "direction": "Yol Tarifi",
   "services": "Hizmetler",
   "cases": "Davalar",
   "faq": "SSS",
@@ -13,31 +17,49 @@
   "send-email": "E-Posta Yolla",
   "send": "Gönder",
   "sending": "Gönderiliyor",
-  "attorney-entities": {
-    "asil-tuna": {
-      "fullname": "Asil TUNA",
-      "possessive": "Asil TUNA`ya"
-    },
-    "mehmet-aldemir": {
-      "fullname": "Mehmet ALDEMİR",
-      "possessive": "Mehmet ALDEMİR`e"
+  "_job-prefix": {
+    "attorney": {
+      "long": "Av.",
+      "short": "Avukat"
     }
+  },
+  "_job-title": {
+    "founder": {
+      "short": "Kur.",
+      "long": "Kurucu"
+    },
+    "cofounder": {
+      "short": "Kur.Ort.",
+      "long": "Kurucu Ortak"
+    }
+  },
+  "_days": {
+    "0": "Pazar",
+    "1": "Pazartesi",
+    "2": "Salı",
+    "3": "Çarşamba",
+    "4": "Perşembe",
+    "5": "Cuma",
+    "6": "Cumartesi"
   },
   "jumbotron-items": [
     {
+      "_id": "ae6084b4-ee9e-439d-9b41-630c10b0f719",
       "title": "Güçlü Hukuki Çözümler",
       "description": "İhtiyaçlarınıza en uygun çözümleri sunarak, haklarınızı korumak için çalışıyoruz.",
-      "button": "Kadromuz"
+      "buttonText": "Kadromuz"
     },
     {
+      "_id": "ace0134d-c3e8-454e-bd5b-a78fa05deeb1",
       "title": "Müşteri Odaklı Yaklaşım",
       "description": "Size özel hukuki danışmanlık hizmetleri sunarak, her adımda sizi bilgilendiriyor ve süreç boyunca yanınızda oluyoruz.",
-      "button": "Danışmanlık Süreci"
+      "buttonText": "Danışmanlık Süreci"
     },
     {
+      "_id": "4e96acca-2af9-4f58-a607-f2cb65eb7333",
       "title": "Başarı Odaklı Stratejiler",
       "description": "Hukuki süreçlerde başarıyı hedefleyen stratejilerimizle, davalarınızda en iyi sonuçları elde etmenizi sağlıyoruz.",
-      "button": "Çalışma Alanlarımız"
+      "buttonText": "Çalışma Alanlarımız"
     }
   ],
   "case-type-tiles": {
@@ -127,6 +149,7 @@
     "send-message-to": "{{name}} mesaj gönder:",
     "success": "Mesajınız iletildi. Ekibimiz size 1-3 iş günü içerisinde geri dönüş sağlayacaktır.",
     "server-error": "Sunucu kaynaklı bir hata oluştu. Lütfen tekrar göndermeyi deneyin.",
+    "server_error": "Sunucu kaynaklı bir hata oluştu. Lütfen tekrar göndermeyi deneyin.",
     "auth-error": "Mesajınız iletilirken sunucu kaynaklı bir problem oluştu. Lütfen tekrar göndermeyi deneyin.",
     "name": {
       "label": "İsminiz",

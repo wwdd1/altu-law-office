@@ -1,8 +1,10 @@
-import GetInTouch from "app/ui/components/homepage/get-in-touch"
-import withTranslations from "app/ui/components/hoc/withTranslations/server"
-
-const GetInTouchWithT = withTranslations(GetInTouch)
+import ReactQueryClientProvider from "@/queries/provider/react-query"
+import GetInTouch from "@/ui/components/homepage/get-in-touch"
 
 export default function ContactPage() {
-  return <GetInTouchWithT></GetInTouchWithT>
+  return (
+    <ReactQueryClientProvider>
+      <GetInTouch></GetInTouch>
+    </ReactQueryClientProvider>
+  )
 }

@@ -12,13 +12,6 @@ export interface SidebarMenuItem {
   route: string;
 }
 
-export interface TeamMember {
-  imageUri: string;
-  fullname: string;
-  jobTitle: string;
-  description: string;
-}
-
 export type InputPropTypes<T> = {
   name: string;
   value?: string;

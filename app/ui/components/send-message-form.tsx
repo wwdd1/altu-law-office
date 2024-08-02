@@ -11,7 +11,7 @@ import { FormState, Severity } from "app/lib/definitions"
 import { actionContactSendMessage } from "app/actions/contact-send-message/index"
 import { Translations } from "app/ui/components/hoc/withTranslations/types"
 import withTranslations from "app/ui/components/hoc/withTranslations/client"
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 
 type Props = {
   className?: string;
