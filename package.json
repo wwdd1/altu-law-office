@@ -38,7 +38,7 @@
   "devDependencies": {
     "@babel/plugin-syntax-jsx": "^7.24.1",
     "@svgr/webpack": "^8.1.0",
-    "@tanstack/eslint-plugin-query": "^5.49.1",
+    "@tanstack/eslint-plugin-query": "^5.51.15",
     "@tanstack/react-query-devtools": "^5.49.2",
     "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/react": "^14.2.2",

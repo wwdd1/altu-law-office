@@ -34,11 +34,7 @@ function GetInTouch({ className, t }: Props) {
       return response.json()
     }
   })
-
-  if (error) {
-    return <pre>{ error.message }</pre>
-  }
-
+  
   const getInTouchData = useMemo(() => {
     if (!contactData) {
       return []
@@ -72,6 +68,10 @@ function GetInTouch({ className, t }: Props) {
       description: `${workDays} ${workHours}`,
     }]
   }, [contactData])
+
+  if (error) {
+    return <pre>{ error.message }</pre>
+  }
 
   let lat = 0, lng = 0;
   if (contactData) {
