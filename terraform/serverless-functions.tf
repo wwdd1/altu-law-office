@@ -35,7 +35,7 @@ resource "google_secret_manager_secret_iam_member" "accessor_mail_svc_secret_var
     "MAIL_SERVICE_ACCESS_TOKEN" : var.MAIL_SERVICE_ACCESS_TOKEN
     "MAIL_SERVICE_REFRESH_TOKEN" : var.MAIL_SERVICE_REFRESH_TOKEN,
   })
-  project   = google_cloudfunctions_function.contact_send_message.project
+  project   = var.project_name
   secret_id = each.value
   role      = local.role_secret_manager_access
   member    = "serviceAccount:${google_service_account.fn_service_account.email}"
@@ -43,6 +43,7 @@ resource "google_secret_manager_secret_iam_member" "accessor_mail_svc_secret_var
 
 # Create/update the function
 resource "google_cloudfunctions_function" "contact_send_message" {
+  depends_on = [ google_secret_manager_secret_iam_member.accessor_mail_svc_secret_vars ]
   name        = local.contact_send_message.name
   description = local.contact_send_message.desciption
   runtime     = var.serverless_fn_defaults.runtime

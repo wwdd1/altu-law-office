@@ -4,6 +4,7 @@
   "contact": "İletişime Geç",
   "about-us": "Hakkımızda",
   "why-choose-us": "Neden bizi seçmelisiniz?",
+  "attorney": "Av.",
   "why-us": "Neden biz?",
   "phone": "Telefon",
   "email": "E-Posta",
@@ -13,24 +14,23 @@
   "services": "Hizmetler",
   "cases": "Davalar",
   "faq": "SSS",
-  "attorney-name": "Av. {{firstname}} {{lastname}}",
   "send-email": "E-Posta Yolla",
   "send": "Gönder",
   "sending": "Gönderiliyor",
   "_job-prefix": {
     "attorney": {
-      "long": "Av.",
-      "short": "Avukat"
+      "long": "Avukat",
+      "short": "Av."
     }
   },
   "_job-title": {
     "founder": {
-      "short": "Kur.",
-      "long": "Kurucu"
+      "long": "Kurucu",
+      "short": "Kur."
     },
     "cofounder": {
-      "short": "Kur.Ort.",
-      "long": "Kurucu Ortak"
+      "long": "Kurucu Ortak",
+      "short": "Kur.Ort."
     }
   },
   "_days": {

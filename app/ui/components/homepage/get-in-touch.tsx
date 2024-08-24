@@ -87,6 +87,7 @@ function GetInTouch({ className, t }: Props) {
       <div>
         <Map
           latLng={{lat, lng}}
+          directionsUrl={contactData?.map_directions_url as string}
           address={
             <>
               <p><strong>{ t('altu') } { t('law-office') }</strong></p>

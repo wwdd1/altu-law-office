@@ -30,9 +30,10 @@ export type LatLng = {
 
 type Props = {
   latLng: LatLng,
+  directionsUrl: string,
   address: ReactNode
 } & Translations
-function Map({ latLng, address, t }: Props) {
+function Map({ latLng, directionsUrl, address, t }: Props) {
   if (!t) {
     throw new Error('Component needs to be wrapped with withTranslations HOC.')
   }
@@ -80,7 +81,7 @@ function Map({ latLng, address, t }: Props) {
         </div>
       </OverlayViewF>
       <GoogleMapsContextProvider mapRef={mapRef}>
-        <AddressControl t={t}>
+        <AddressControl t={t} directionsUrl={directionsUrl}>
           { address }
         </AddressControl>
       </GoogleMapsContextProvider>
