@@ -44,7 +44,8 @@
       "email": "altuhukuk@gmail.com",
       "address_line_1": "İsmet Kaptan Mh. 1367 Sk. No:2 Kat:7 Daire:704 İkbal 2 İş Merkezi",
       "address_line_2": "Konak/İzmir",
-      "map_coordinates": "38.4228558,27.1415766"
+      "map_coordinates": "38.4228558,27.1415766",
+      "map_directions_url": "https://www.google.com/maps/dir//'38.4228558,27.1415766'/@39.344934,27.4945627,8z/data=!4m7!4m6!1m0!1m3!2m2!1d27.1415766!2d38.4228558!3e0?entry=ttu"
     },
     {
       "id": "3dfc1ca5-00e9-47ed-8613-cffdbda41c40",
@@ -55,7 +56,8 @@
       "email": "",
       "address_line_1": "",
       "address_line_2": "",
-      "map_coordinates": ""
+      "map_coordinates": "",
+      "map_directions_url": ""
     },
     {
       "id": "f5172684-671b-4a6e-9f0b-f0c59e1e9435",
@@ -66,7 +68,8 @@
       "email": "",
       "address_line_1": "",
       "address_line_2": "",
-      "map_coordinates": ""
+      "map_coordinates": "",
+      "map_directions_url": ""
     }
   ]
 }

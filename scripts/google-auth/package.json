@@ -1,0 +1,14 @@
+{
+  "name": "google-auth",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.mjs",
+  "scripts": {
+    "start": "node index.mjs"
+  },
+  "dependencies": {
+    "google-auth-library": "^9.13.0",
+    "open": "^10.1.0",
+    "server-destroy": "^1.0.1"
+  }
+}

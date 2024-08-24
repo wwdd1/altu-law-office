@@ -8,6 +8,7 @@ export interface ContactDto {
   address_line_1: string
   address_line_2: string
   map_coordinates: string
+  map_directions_url: string
 }
 
 export interface CompanyDto {

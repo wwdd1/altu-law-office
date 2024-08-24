@@ -6,10 +6,12 @@ import { Translations } from "../hoc/withTranslations/types"
 
 type Props = {
   children: ReactNode
+  directionsUrl?: string
   position?: number
 } & Translations
 export default function AddressControl({
     children,
+    directionsUrl = '#',
     position = window.google.maps.ControlPosition.TOP_LEFT,
     t,
 }: Props) {
@@ -33,10 +35,14 @@ export default function AddressControl({
       <div className="max-w-[260px]">
         { children }
       </div>
-      <div className="text-link-alternate text-center self-center cursor-pointer hover:underline">
+      <a
+        href={directionsUrl}
+        target="_blank"
+        className="text-link-alternate text-center self-center cursor-pointer hover:underline"
+      >
         <ExternalLinkSvg width={22} height={22} className="inline mb-1"></ExternalLinkSvg>
         <div>{ t('direction') }</div>
-      </div>
+      </a>
     </div>
   ), controlDiv)
 }

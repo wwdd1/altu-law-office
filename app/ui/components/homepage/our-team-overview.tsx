@@ -1,14 +1,14 @@
 'use client'
 
 import { Suspense } from "react"
-import { isServer, useQuery } from "@tanstack/react-query"
 import classNames from "classnames"
+import { useQuery } from "@tanstack/react-query"
 
-import withTranslations from "../hoc/withTranslations/client"
+import withTranslations from "@/ui/components/hoc/withTranslations/client"
 import type { Translations } from "app/ui/components/hoc/withTranslations/types"
 import { font_playfair } from "app/ui/fonts"
-import { TeamMemberDto } from "app/lib/dtos"
 import TeamMemberItem from "@/ui/components/team-member-card"
+import { getMembers } from "@/queries/member"
 
 type Props = {
   className?: string;
@@ -23,16 +23,9 @@ function OurTeamOverview({
     throw new Error('Component needs to be wrapped with HOC withTranslations')
   }
 
-  console.log({ isServer })
-
-  const { data: members, error } = useQuery({
-    queryKey: ['members'],
-    queryFn: async (): Promise<TeamMemberDto[]> => {
-      const apiUri= `/api/companies/${process.env.NEXT_PUBLIC_COMPANY_ID}/members`
-      const response = await fetch(apiUri)
-      return response.json()
-    },
-  })
+  const { data: members, error } = useQuery(getMembers({
+    companyId: String(process.env.NEXT_PUBLIC_COMPANY_ID),
+  }))
 
   if (error) {
     return <pre>{ error.message }</pre>;
@@ -47,7 +40,7 @@ function OurTeamOverview({
           </h4>
         : ''
       }
-      <Suspense fallback={<div>TODOOOOO IMPL THIS!!</div>}>
+      <Suspense fallback={<div>Loading...</div>}>
         <ul className="flex md-w-sidebar:block justify-center py-12 pt-0">
           {
             members?.map(member => (
@@ -55,8 +48,8 @@ function OurTeamOverview({
                 className="md-w-sidebar:my-12"
                 key={member.id}
                 imageUri={member.image_uri}
-                fullname={`${member.job_prefix} ${member.firstname} ${member.lastname}`}
-                jobTitle={member.job_position}
+                fullname={`${t(`_job-prefix.${member.job_prefix}.short`)} ${member.firstname} ${member.lastname}`}
+                jobTitle={t(`_job-title.${member.job_position}.long`)}
                 description={member.about_short}
                 routeKey={member.client_route_id}
               ></TeamMemberItem>
@@ -68,4 +61,4 @@ function OurTeamOverview({
   )
 }
 
-export default  withTranslations(OurTeamOverview)
+export default withTranslations(OurTeamOverview)
